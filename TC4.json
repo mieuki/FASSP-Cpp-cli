@@ -1,0 +1,63 @@
+{
+  "target": {
+    "material": {
+      "filename": "950824_05_v3.ref"
+    },
+    "percentageIfov": 10,
+    "backgroundIndex": 0
+  },
+  "background": {
+    "classes": [
+      {
+        "material": {
+          "filename": "950824_05_Grass2_R.ref"
+        },
+        "percentage": 100
+      }
+    ]
+  },
+  "scene": {
+    "atmosphere": {
+      "modelType": "modtran_tape",
+      "parameters": {
+        "modtran_exe": "${MODTRAN_EXE}",
+        "modtran_data": "${MODTRAN_DATA}",
+	"modroot_filename": "mod5root.in",
+        "tape5_parameters": {
+          "atmospheric_model": "MidLatitudeSummer",
+          "boundary_aerosol_model": {
+            "type": "RuralVis5Km",
+            "parameters": {
+              "visibility_km": 10.0
+            }
+          },
+          "multiple_scattering": {
+            "type": "Isaac"
+          },
+          "co2_mixing_ratio_ppm": 390
+        }
+      }
+    },
+    "solarZenithDeg": 60,
+    "groundAltitudeKm": 0
+  },
+  "sensor": {
+    "filename": "HyMap.sen",
+    "viewZenithDeg": 0,
+    "noiseFactor": 1,
+    "gainFactor": 1,
+    "relativeCalibrationError": 5,
+    "numRadiometricBits": 12,
+    "bitErrorRate": 1e-9,
+    "sensorAltitudeKm": 3.1,
+    "integrationTimeS": 0.0001
+  },
+  "processing": {
+    "probFalseAlarm": [1e-1, 1e-2, 1e-3, 1e-4, 1e-5, 1e-6],
+    "numFeatures": 126,
+    "atmosphericCompensation": "ELM",
+    "algorithmType": "CEM",
+    "matrixType": "Covariance",
+    "binFactor": 1
+  }
+}
